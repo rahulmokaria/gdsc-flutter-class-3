@@ -27,3 +27,60 @@ We will now continue with the functionslity part i.e. the working of the calcula
     
   }
 ```
+- As we discussed we have 4 types of input viz. C, del, = and operator/digit. All these need to handled separately. Lets use _if else_ to handle these cases.
+ ```
+   buttonPressed(String input) {
+    if(input=='C'){
+
+    }else if(input=='Del'){
+
+    }else if(input=='='){
+      
+    }else{
+      
+    }
+  }
+ ```
+ - For the first part i.e. the input is 'C', we just need to clear out our expression and output. For that we will add the following code to the first part i.e. if statement of the function.
+ ```
+     if (input == 'C') {
+      setState(() {
+        expression = '';
+        output = '';
+      });
+    } 
+ ```
+ - For the second part i.e when we the 'Del' button is clicked, we need to first check whether our string is emply or not. If the string length is greater than 0, we will remove the last character of the string which can be done by selecting substring of expression from 0 to length-1. For the same we will add the following code in the first else if part of the function.
+ ```
+ else if (input == 'Del') {
+      if(expression.length>0){
+        setState(() {
+          expression=expression.substring(0,expression.length-1);
+        });
+      }
+    }
+ ```
+ - When the = button is pressed we need to calculate the expression right. So for that we will call a function evalExpression, which we will create afterwards.
+  - Since in the last part, we are just adding the character inputed to the expression we just need to add input to the expression. Since we also need to show that it changes expression shown in container we need to use setState.
+ - So we will add the follwing code to the else statement of the function.
+ ```
+ else {
+      setState(() {
+        expression += input;
+      });
+    }
+ ```
+ - Now that we are ready with the working of the buttons lets add this feature to the button. For that we need to pass the function to the MyButton class. For the same we will create a new variable that takes this function as input and also add this to its constructor. the MyButton class will look like this afterwards.
+![image](https://user-images.githubusercontent.com/76885050/229315831-8b3b090d-4bbe-4dee-bc15-c81e3bf750f4.png)
+- Now we will add this to our GestureDetector. As we discussed it has many attributes from which one is onTap which takes a function as an input. We call our buttonPressed function here.
+- The GestureDetector will look like this afterwards.
+- ![image](https://user-images.githubusercontent.com/76885050/229315899-4f7cc927-d123-4dfd-ae87-450c740bf1bc.png)
+- Now we will need to pass this function everywhere we used MyButton.
+- For example a call will look like:
+```
+                        MyButton(
+                            buttonText: 'C',
+                            buttonColor: Colors.orange,
+                            buttonPressed: buttonPressed),
+```
+- Now that we are only left with the evaluation part of the calculation, for which lets add a dependency, so that we get an idea how to do that too. For the same we will open [pub.dev](https://pub.dev/)
