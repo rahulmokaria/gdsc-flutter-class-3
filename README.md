@@ -70,8 +70,9 @@ We will now continue with the functionslity part i.e. the working of the calcula
       });
     }
  ```
- - Now that we are ready with the working of the buttons lets add this feature to the button. For that we need to pass the function to the MyButton class. For the same we will create a new variable that takes this function as input and also add this to its constructor. the MyButton class will look like this afterwards.
-![image](https://user-images.githubusercontent.com/76885050/229315831-8b3b090d-4bbe-4dee-bc15-c81e3bf750f4.png)
+ - Now that we are ready with the working of the buttons lets add this feature to the button. For that we need to pass the function to the MyButton class. For the same we will create a new variable that takes this function as input and also add this to its constructor. The MyButton class will look like this afterwards.
+
+ ![image](https://user-images.githubusercontent.com/76885050/229315831-8b3b090d-4bbe-4dee-bc15-c81e3bf750f4.png)
 - Now we will add this to our GestureDetector. As we discussed it has many attributes from which one is onTap which takes a function as an input. We call our buttonPressed function here.
 - The GestureDetector will look like this afterwards.
 - ![image](https://user-images.githubusercontent.com/76885050/229315899-4f7cc927-d123-4dfd-ae87-450c740bf1bc.png)
@@ -83,4 +84,56 @@ We will now continue with the functionslity part i.e. the working of the calcula
                             buttonColor: Colors.orange,
                             buttonPressed: buttonPressed),
 ```
-- Now that we are only left with the evaluation part of the calculation, for which lets add a dependency, so that we get an idea how to do that too. For the same we will open [pub.dev](https://pub.dev/)
+- Now that we are only left with the evaluation part of the calculation, for which lets add a dependency, so that we get an idea how to do that too. For the same we will open [pub.dev](https://pub.dev/) and there we will search for math expression.
+- On searching something like below comes up
+![image](https://user-images.githubusercontent.com/76885050/229316355-92430787-a156-44ff-bd08-122ef752602f.png)
+- These are the dependencies that we can add to our app and use their functionalities.
+- Open the first dependency i.e. math_expressions.
+- ![image](https://user-images.githubusercontent.com/76885050/229316452-e30a978f-965a-4553-b7f9-725ea8f87abb.png)
+- click the copy option near the name.
+- Now in our project we will open the pubspec.yaml file and paste the copied text to **Line 38** of the file.Here what we did was added a dependency. Incase the IDE does not run flutter pub get on its own, you can run it using the command flutter pub get.
+- the pubspec.yaml files will look like this:
+```
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  math_expressions: ^2.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+```
+- Now that we have our dependency installed we can use its functionalities in our code.
+- For the evaluation part of the calculator we will use this dependency.
+- For the evaluation part lets create a new function evalExpression which will be called when = is pressed.
+- adding evalExpression to if else statement of =
+```
+else if (input == '=') {
+      evalExpression();
+    }
+```
+- Now we will add new function after the buttonPressed function.
+```
+  evalExpression(){
+    
+  }
+```
+- In this function we will create a parser which will be used for parsing the string expression that the user inputed. If it shows any error then import the math_expression package. To make it working add the following code to the evalExpression function.
+```
+  evalExpression() {
+    Parser p = Parser();
+    Expression exp = p.parse(expression);
+    ContextModel cm = ContextModel();
+    setState(() {
+      output = '${exp.evaluate(EvaluationType.REAL, cm)}';
+    });
+  }
+```
+If you didn't understand what the above code meant, refer to pub.dev at [maths_expression](https://pub.dev/packages/math_expressions) and see examples there. If you are not getting any line, feel free to contact.
+
+
