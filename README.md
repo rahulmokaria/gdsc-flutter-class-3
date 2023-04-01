@@ -136,4 +136,15 @@ else if (input == '=') {
 ```
 If you didn't understand what the above code meant, refer to pub.dev at [maths_expression](https://pub.dev/packages/math_expressions) and see examples there. If you are not getting any line, feel free to contact.
 
+The text that appears is very small, to increase the size we can use the textScaleFactor attribute of the Text widget. Assign it a value of 2 to increase the size.
 
+With the completion of our app-solutely beautiful(pun intended) app, we come to the end of the FLutter Festival event.
+Flutter Festival classes have flown by in a flash! We hope you've had a flutter-tastic time learning about this beautiful framework. Don't let your flutter wings wilt just yet, though! If you have any questions or need help spreading your flutter wings further, feel free to reach out to us anytime. We're always happy to flutter our way into your inbox or phone! Keep on flappin' with flutter!
+<center><img src="https://em-content.zobj.net/source/microsoft-teams/337/smiling-face-with-smiling-eyes_1f60a.png" width="50" height = "50" ></center>
+
+## Additional Resources
+- [Flutter Documentation](https://docs.flutter.dev/)
+- [pub.dev](https://pub.dev/)
+- [Flutter Widgets Catalog](https://docs.flutter.dev/development/ui/widgets)
+- [Flutter Layout Cheat Sheet](https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e)
+- [Video Tutorials](https://www.youtube.com/playlist?list=PLlxmoA0rQ-Lw6tAs2fGFuXGP13-dWdKsB)
