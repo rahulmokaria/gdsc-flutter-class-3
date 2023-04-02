@@ -108,7 +108,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 ```
-- Now that we have our dependency installed we can use its functionalities in our code.
+- Now that we have our Package installed we can use its functionalities in our code.
 - For the evaluation part of the calculator we will use this dependency.
 - For the evaluation part lets create a new function evalExpression which will be called when = is pressed.
 - adding evalExpression to if else statement of =
